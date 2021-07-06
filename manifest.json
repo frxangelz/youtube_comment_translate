@@ -1,0 +1,33 @@
+{
+  "name": "Youtube Comment Translator",
+  "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "very simple Macro to translate youtube video comment",
+  "homepage_url": "https://www.youtube.com/c/freeangelz?sub_confirmation=1",
+  "browser_action": {
+    "default_title": "Youtube Comment Translator",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "background",
+	"storage",
+    "https://*.youtube.com/*",
+    "https://translate.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "youtube.js",
+		"translate.js"
+      ]
+    }
+  ]
+}

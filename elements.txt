@@ -1,0 +1,81 @@
+hasil terjemahan
+cari div id="content"
+
+tambahkan diakhir
+<div style="font-style: oblique; color: gray; font-size: 12px;"> Ini terjemahan </div>
+
+
+var yts = document.querySelectorAll("yt-formatted-string#content-text");
+	if((!yts) || (yts.length < 1)){
+		alert("41:Element Not Found");
+
+	}
+	
+	for (var i=0; i<yts.length; i++){
+		
+		if(yts[i].textContent !== "musik lawas selalu mengenang masa di sekolah SMA"){
+			continue;
+		}
+		
+		// check if already add element
+		var ns = yts[i].nextSibling;
+		if(ns) {
+			ns.textContent ="Aku lagi ngetest";
+		} else {
+			var div = document.createElement("div");
+			div.setAttribute("style","font-style: oblique; color: gray; font-size: 12px;");
+			var txt = document.createTextNode("Aku lagi ngetest");
+			div.appendChild(txt);
+			yts[i].parentNode.appendChild(div);
+		}
+		
+		break;
+	}
+
+
+<button class="VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ qiN4Vb KY3GZb szLmtb" jscontroller="soHxf" jsaction="click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc; touchcancel:JMtRjd; focus:AHmuwe; blur:O22p3e; contextmenu:mg9Pef;" jsname="zumM6d" data-disable-idom="true" aria-label="More target languages" style="--mdc-ripple-fg-size:24px; --mdc-ripple-fg-scale:1.66667; --mdc-ripple-left:8px; --mdc-ripple-top:8px;"><div class="VfPpkd-Bz112c-Jh9lGc"></div><span class="zQ0atf" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class=" NMm5M"><path d="M5.41 7.59L4 9l8 8 8-8-1.41-1.41L12 14.17"></path></svg></span></button>
+
+<button class="VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ qiN4Vb KY3GZb szLmtb" jscontroller="soHxf" jsaction="click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc; touchcancel:JMtRjd; focus:AHmuwe; blur:O22p3e; contextmenu:mg9Pef;" jsname="RCbdJd" data-disable-idom="true" aria-label="More source languages" style="--mdc-ripple-fg-size:24px; --mdc-ripple-fg-scale:1.66667; --mdc-ripple-left:8px; --mdc-ripple-top:8px;"><div class="VfPpkd-Bz112c-Jh9lGc"></div><span class="zQ0atf" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class=" NMm5M"><path d="M5.41 7.59L4 9l8 8 8-8-1.41-1.41L12 14.17"></path></svg></span></button>
+
+var btns = document.querySelectorAll("button.szLmtb");
+for (var i=0; i<btns.length;i++){
+
+	if(btns[i].getAttribute("aria-label") == "More target languages") { btns[i].click(); }
+}
+	var divs = document.querySelectorAll("div.RCaXn");
+	var idx = 0;
+
+setTimeout(function(){
+	for(var i=0; i<divs.length; i++){
+
+		if(divs[i].textContent == "Malay") { 
+				divs[i].click(); break; 
+		}
+	}	
+}, 1000);
+
+
+var divs = document.querySelectorAll("div.PxXj2d");
+for(var i=0; i<divs.length; i++){
+	console.log(divs[i].textContent);
+	if(divs[i].textContent == "Malay") { 
+		divs[i].click(); break; 
+	}
+}
+
+<div class="ordo2 RCaXn" jsname="sgblj" data-language-code="ms" tabindex="0"><div class="ltCBQb"><i class="material-icons-extended VfPpkd-kBDsod g3XDjb" aria-hidden="true" lang="">check</i><i class="material-icons-extended VfPpkd-kBDsod W5jNxd" aria-hidden="true" lang="">history</i></div><div class="PxXj2d" jsname="Lm8Uhb">Malay</div></div>
+
+<div class="ordo2 RCaXn" jsname="sgblj" data-language-code="ms" tabindex="0"><div class="ltCBQb"><i class="material-icons-extended VfPpkd-kBDsod g3XDjb" aria-hidden="true" lang="">check</i><i class="material-icons-extended VfPpkd-kBDsod W5jNxd" aria-hidden="true" lang="">history</i></div><div class="PxXj2d" jsname="Lm8Uhb">Malay</div></div>
+
+
+// swap button
+<i class="material-icons-extended VfPpkd-kBDsod" aria-hidden="true" lang="">swap_horiz</i>
+
+<button class="VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ qiN4Vb lRTpdf U2dVxe" jscontroller="soHxf" jsaction="click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc; touchcancel:JMtRjd; focus:AHmuwe; blur:O22p3e; contextmenu:mg9Pef;" jsname="dnDxad" data-disable-idom="true" aria-label="Swap languages (Ctrl+Shift+S)" style="--mdc-ripple-fg-size:24px; --mdc-ripple-fg-scale:1.66667; --mdc-ripple-left:8px; --mdc-ripple-top:8px;"><div class="VfPpkd-Bz112c-Jh9lGc"></div><i class="material-icons-extended VfPpkd-kBDsod" aria-hidden="true" lang="">swap_horiz</i></button>
+
+var b = document.querySelectorAll("button.U2dVxe");
+for(var i=0; i<b.length;i++){
+	if(b[i].textContent == "swap_horiz"){
+		b[i].click();
+	}
+}
