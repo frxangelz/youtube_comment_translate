@@ -37,7 +37,7 @@ function showResult(srclang,src,target){
 
 	var yts = document.querySelectorAll("yt-formatted-string#content-text");
 	if((!yts) || (yts.length < 1)){
-		alert("41:Element Not Found");
+		console.log("41:Element Not Found");
 		return;
 	}
 	
@@ -54,7 +54,7 @@ function showResult(srclang,src,target){
 		while(p){
 			
 			p = p.nextSibling;
-			if(!p){ alert("61:Element not Found");	return;	}
+			if(!p){ console.log("61:Element not Found");	return;	}
 			
 			if(!p.tagName) { continue; }
 			var t = p.tagName.toLowerCase();
@@ -84,7 +84,7 @@ function showResult(srclang,src,target){
 			}
 		}
 		
-		if(!found){	alert("70:Element Not Found");	return;	}
+		if(!found){	console.log("70:Element Not Found");	return;	}
 		
 		break;
 	}
@@ -94,7 +94,7 @@ function showResultEx(srcLang,srcText,targetText){
 
 	var ts = document.querySelectorAll("div#contenteditable-root");
 	if((!ts) || (ts.length < 1)) { 
-		alert("97:Element Not Found !");
+		console.log("97:Element Not Found !");
 		return; 
 	}
 	
@@ -177,14 +177,14 @@ chrome.runtime.onMessage.addListener(
 function TranslateButtonClick(o){
 		
 		if(LastButton){
-			alert("Please wait for the translation that is still not finished");
+			console.log("Please wait for the translation that is still not finished");
 			return;
 		}
 		
 		var prev = o.previousSibling;
 		var p = GetParentWithTag(o,"ytd-comment-action-buttons-renderer");
 		if(!p) {
-			alert("84:element not found !");
+			console.log("84:element not found !");
 			return;
 		}
 
@@ -202,13 +202,13 @@ function TranslateButtonClick(o){
 			
 			p = p.previousSibling;
 			if(!p){
-				alert("element not found !");
+				console.log("element not found !");
 				return;
 			}
 		}
 		
 		if(!b){
-			alert("90: element not found !");
+			console.log("90: element not found !");
 			return;
 		}
 		
@@ -266,7 +266,7 @@ function InsertCommentButtons(){
 function ReplyButtonClick(o){
 
 	if(LastButton){
-		alert("Please wait for the translation that is still not finished");
+		console.log("Please wait for the translation that is still not finished");
 		return;
 	}
 
@@ -288,7 +288,7 @@ function ReplyButtonClick(o){
 	}
 	
 	if(!b) { 
-		alert("252: Element not Found !");
+		console.log("252: Element not Found !");
 		return; 
 	}
 
@@ -308,13 +308,13 @@ function ReplyButtonClick(o){
 	}
 		
 	if(!b) {
-		alert("Element Not Found !");
+		console.log("Element Not Found !");
 		return;
 	}
 	
 	p = p.querySelector("div#contenteditable-root");
 	if(!p){
-		alert("Element Not Found !");
+		console.log("Element Not Found !");
 		return;
 	}
 	
