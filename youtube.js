@@ -99,11 +99,13 @@ function showResultEx(srcLang,srcText,targetText){
 	}
 	
 	var txt = "";
+	var innerHTML = ReplyToUserName+"</a> "+targetText;
 	for(var i=0; i<ts.length; i++){
 		
 		txt = ts[i].textContent;
-		if(txt == srcText){
-			ts[i].textContent = targetText;
+		if(txt.indexOf(srcText) !== -1){
+			//ts[i].textContent = targetText;
+			ts[i].innerHTML = innerHTML;
 			return;
 		}
 	}
@@ -263,6 +265,9 @@ function InsertCommentButtons(){
 	}	
 }
 
+var ReplyToUserName = "";
+var ReplyText = "";
+
 function ReplyButtonClick(o){
 
 	if(LastButton){
@@ -318,8 +323,23 @@ function ReplyButtonClick(o){
 		return;
 	}
 	
-	//alert(p.textContent);
-	//console.log(p.textContent);
+	// search for <a>
+	if(p.getElementsByTagName("a")){
+		
+		var ih = p.innerHTML;
+		var lst = ih.split("</a>");
+		if(lst.length > 1){
+			ReplyToUserName = lst[0];
+			ReplyText = lst[1];
+		} else {
+			ReplyText = p.textContent;
+			ReplyToUserName = "";
+		}
+	} else {
+			ReplyText = p.textContent;
+			ReplyToUserName = "";
+	}
+	
 	
 	var pr = GetParentWithTag(o,"ytd-comment-action-buttons-renderer");
 	//if(!pr){ console.log("286: Element Not Found !") };
@@ -339,7 +359,7 @@ function ReplyButtonClick(o){
 	}
 	
 	// send request :)
-	chrome.runtime.sendMessage({action:"translate_ex",lang:lang,src:p.textContent});
+	chrome.runtime.sendMessage({action:"translate_ex",lang:lang,src:ReplyText});
 	o.disabled = true;
 	LastButton = o;
 	elapsed_time = 0; // reset ke awal
