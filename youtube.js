@@ -119,7 +119,7 @@ chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
 
 	// jika content script di youtube
-	if(cur_url.indexOf("youtube.com/watch?v=") !== -1){
+	if(cur_url.indexOf("youtube.com/") !== -1){
 		if (request.action === "answer") {
 
 			if(LastButton){
@@ -424,7 +424,7 @@ function onUrlChange() {
 		   cur_url = window.location.href;
            tick_count= tick_count+1; 
 
-		   if(cur_url.indexOf('youtube.com/watch?v=') !== -1){
+		 if(cur_url.indexOf('youtube.com/') !== -1){
 
 				clearTranslatedText();
 				InsertCommentButtons();
