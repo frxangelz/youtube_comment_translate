@@ -29,19 +29,28 @@ function getDetectedLanguage(){
 }
 
 function getLangCode(lang){
-	var divs = document.querySelectorAll("div.PxXj2d");
+	var divs = document.querySelectorAll("div.qSb8Pe");
 
 	for(var i=0; i<divs.length; i++){
 
-		if(divs[i].textContent == lang) { 
-			var langCode = divs[i].parentNode.getAttribute("data-language-code");
-			return langCode;
+		if((!divs[i].children) || (divs[i].children.length < 1)) { continue; }
+	
+		for (var j=0; j<divs[i].children.length; j++){
+			
+			var c = divs[i].children[j];
+			
+			if(c.textContent == lang) { 
+				var langCode = divs[i].getAttribute("data-language-code");
+				return langCode;
+			}
 		}
 	}
 	
+	console.log("lang code for "+lang+" not found !");
 	return "";
 }
 
+/*
 function getLangFromCode(code){
 	var divs = document.querySelectorAll("div.PxXj2d");
 
@@ -55,16 +64,25 @@ function getLangFromCode(code){
 	
 	return "";
 }
+*/
 
 function selectSourceLang(lang){
 	
-	var divs = document.querySelectorAll("div.PxXj2d");
+	var divs = document.querySelectorAll("div.qSb8Pe");
 
 	for(var i=0; i<divs.length; i++){
 
-		if(divs[i].textContent == lang) { 
-			divs[i].click(); break; 
-		}
+		if((!divs[i].children) || (divs[i].children.length < 1)) { continue; }
+		
+		for (var j=0; j<divs[i].children.length; j++){
+			
+			var c = divs[i].children[j];
+			
+			if(c.textContent == lang) { 
+				divs[i].children[j].click();
+				return;
+			}
+		}		
 	}
 }
 
@@ -151,7 +169,10 @@ function send_answer_ex(srcLang,srcText,targetText){
 USER_LANG_CODE = "";
 function do_translate(lang,src){
 
-		if(USER_LANG_CODE == "") { return; }
+		if(USER_LANG_CODE == "") { 
+			console.log("USER_LANG_CODE is empty");
+			return; 
+		}
 		
 		if(window.location.href.indexOf("tl="+USER_LANG_CODE) === -1){
 			chrome.runtime.sendMessage({action:"target_lang_code",code:USER_LANG_CODE,txt:src},function(response){
@@ -164,8 +185,10 @@ function do_translate(lang,src){
 			return;
 		}
 		
+		if(cur_url.indexOf("sl=auto") == -1){ selectAutoDetect(); }
+		/*
 		if((lang == "") || (!lang) || (lang=="undefined")) { selectAutoDetect(); }
-		else { selectSourceLang(lang); }
+		else { selectSourceLang(lang); } */
 		
 		if(!SourceTextArea){ send_answer(lang,src,"135:translation error"); return;	}
 		
@@ -187,8 +210,11 @@ LAST_LANG_CODE = "en";
 function do_translate_ex(lang,srcText){
 
 		var langCode =  LAST_LANG_CODE;
-		if(lang != "") { langCode =	getLangCode(lang); }
-		if(langCode == ""){	return;	}
+		if(lang != "") { langCode =	getLangCode(lang); console.log("getLangCode : "+langCode); }
+		if(langCode == ""){	
+			console.log("langCode is empty for "+lang);
+			return;	
+		}
 		
 		if(CURRENT_LANG_CODE != langCode){
 			
