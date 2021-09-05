@@ -9,5 +9,5 @@ this chrome extension will bring up the translate button in every comment from t
 this extension works with chrome,edge and opera browser
 
 demo :
-<a href="https://www.youtube.com/watch?v=ImmMY1vovFw" target="_blank">Watch Youtube</a><br />
-<a href="https://www.youtube.com/c/freeangelz?sub_confirmation=1" target="_blank">My Youtube Channel</a><br /><br />
+<a href="https://www.youtube.com/watch?v=1cYYE05Omgo" target="_blank">Watch Youtube</a><br />
+<a href="https://www.youtube.com/channel/UCqRqvw9n7Lrh79x3dRDOkDg" target="_blank">Please Subscribe</a><br /><br />
